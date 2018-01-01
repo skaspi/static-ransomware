@@ -21,9 +21,10 @@ The main script for static analysis.
       * Crypto-libraries presence check
   
 """
-import subprocess as sub
+
 import sys
 import os
+import subprocess as sub
 
 
 def main():

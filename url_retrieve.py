@@ -19,12 +19,13 @@ All the credits for the is_downloadable() and get_filename_from_cd() functions g
 
 Avi Aryan's post --> https://www.codementor.io/aviaryan/downloading-files-from-urls-in-python-77q3bs0un
 """
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
-import requests
-import shutil
+
 import re
 import json
+import shutil
+import requests
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
 
 
 def get_filename_from_cd(cd):
