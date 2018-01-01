@@ -15,7 +15,7 @@ import sys
 
 
 def main():
-    crypt, VM, proc_rep, pr_esc, debug = 0, 0, 0, 0, 0
+    crypt, vm, proc_rep, pr_esc, debug = 0, 0, 0, 0, 0
 
     with open(sys.argv[1], 'rb', 0) as file, mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
 
@@ -25,25 +25,25 @@ def main():
 
             # Anti VM check
         if s.find(b'GetCursorPos') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetUserName') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetModuleFileName') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetLogicalDriveStrings') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetDriveType') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'DeviceIoControl') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetSystemInfo') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GlobalMemoryStatusEx') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetModuleHandleA') != -1:
-            VM += 1
+            vm += 1
         if s.find(b'GetAdaptersAddresses') != -1:
-            VM += 1
+            vm += 1
 
             # Process Replacement check
         if s.find(b'CreateFileMapping') != -1:
@@ -68,8 +68,6 @@ def main():
             crypt = 1
         if s.find(b'BCRYPT.DLL') != -1:
             crypt = 1
-        if s.find(b'CRYPTSP.DLL') != -1:
-            crypt = 1
 
         if debug == 1:
             print('Trying to evade debugger!\n')
@@ -83,10 +81,10 @@ def main():
         if proc_rep > 1:
             print('Process Replacement detected!\n')
 
-        if VM > 2:
+        if vm > 2:
             print('Virtual Machine evading detected!\n')
 
-        tup = (crypt, VM, proc_rep, pr_esc, debug)
+        tup = (crypt, vm, proc_rep, pr_esc, debug)
         sum_ = 0
 
         for n in tup:
