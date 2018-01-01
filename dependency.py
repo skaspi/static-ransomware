@@ -16,6 +16,7 @@ import sys
 
 def main():
     crypt, vm, proc_rep, pr_esc, debug = 0, 0, 0, 0, 0
+    flag = 0
 
     with open(sys.argv[1], 'rb', 0) as file, mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
 
@@ -70,27 +71,26 @@ def main():
             crypt = 1
 
         if debug == 1:
+            flag = 1
             print('Trying to evade debugger!\n')
 
         if crypt == 1:
+            flag = 1
             print('Encryption detected!\n')
 
         if pr_esc > 1:
+            flag = 1
             print('Privilege Escalation detected!\n')
 
         if proc_rep > 1:
+            flag = 1
             print('Process Replacement detected!\n')
 
         if vm > 2:
+            flag = 1
             print('Virtual Machine evading detected!\n')
 
-        tup = (crypt, vm, proc_rep, pr_esc, debug)
-        sum_ = 0
-
-        for n in tup:
-            sum_ += n
-
-        if sum_ < 5:
+        if flag == 0:
             print('The file passed static analysis successfully !!!')
 
 
