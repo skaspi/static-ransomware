@@ -10,8 +10,8 @@ Technion, Haifa, Israel
 The purpose of this script is to detect
 suspicious API calls during the static analysis.
 """
-import mmap
 import sys
+import mmap
 
 
 def main():

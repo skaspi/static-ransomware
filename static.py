@@ -21,9 +21,8 @@ The main script for static analysis.
       * Crypto-libraries presence check
   
 """
-
-import sys
 import os
+import sys
 import subprocess as sub
 
 
