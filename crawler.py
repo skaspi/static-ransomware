@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 2 12:13:16 2018
+Created on Tue Jan 2 12:13:16 2018
 
 @authors Rafael,Dmitriy
 Ransomware Detection Project

@@ -1,3 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jan 1 12:50:16 2018
+
+@authors Rafael,Dmitriy
+Ransomware Detection Project
+Technion, Haifa, Israel
+
+Auxiliary script for generating honepot-files with random names and content.
+Currently, we generating *.txt, *.pdf, *.xlsx files.
+"""
+
 from random import randint
 import random
 import string
