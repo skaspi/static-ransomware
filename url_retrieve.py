@@ -66,6 +66,8 @@ def main():
 
     soup = BeautifulSoup(page, "html.parser")
 
+    data_file.close()
+
     links = []
 
     for link in soup.find_all('a'):
