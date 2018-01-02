@@ -3,21 +3,11 @@ import random
 import string
 import xlsxwriter
 from fpdf import FPDF
-import os
-import urllib
-import sys
-import zipfile
 import os.path
-import win32ui
 from shutil import copyfile
-import subprocess
-import re
-import locale
-import win32com.client
 
 
-# XLS Files
-
+# .xls Files
 def randomxls(path):
     numxls = (randint(10, 20))
 
@@ -47,8 +37,7 @@ def randomxls(path):
             copyfile(name, dupli)
 
 
-# PDF Files
-
+# .pdf Files + .txt Files
 def randompdf(path):
     numpdf = (randint(15, 20))
 
@@ -70,7 +59,7 @@ def randompdf(path):
 
         for i in range(numwords):
             randomword = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(randint(5, 15))])
-            fh.write(randomword+"\n")
+            fh.write(randomword + "\n")
             words.append(randomword)
 
         fh.close()
@@ -92,4 +81,3 @@ def randompdf(path):
 
 randomxls(os.environ['USERPROFILE'] + "\\Desktop\\honey\\")
 randompdf(os.environ['USERPROFILE'] + "\\Desktop\\honey\\")
-
