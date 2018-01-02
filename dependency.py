@@ -19,6 +19,7 @@ def main():
 
     file = open(sys.argv[1], 'r')
     s = file.read()
+    file.close()
 
     # Anti Debugging check
     if s.find('IsDebuggerPresent') != -1:
